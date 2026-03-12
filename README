@@ -67,10 +67,10 @@ I have identified the following Space-Time trade-offs for future versions:
 ---
 
 ## 🚀 How to Run
-1.  **Clone:** `git clone https://github.com/YourUsername/SwiftScan.git`
+1.  **Clone:** `git clone https://github.com/rostomahmad2345/SwiftScan.git`
 2.  **Install Dependencies:** `pip install matplotlib`
 3.  **Launch App:** `python swift_gui.py`
 4.  **Run Tests:** `python swift_tester.py`
 
 ---
-*Developed by Rustom - EE & CS Student at The Hebrew University of Jerusalem.*
+*Developed by Rostom Egbaria - EE & CS Student at The Hebrew University of Jerusalem.*
