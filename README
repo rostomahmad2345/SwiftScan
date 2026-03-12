@@ -1,0 +1,76 @@
+# 🚀 SwiftScan
+### High-Performance O(L) Substring Search Engine
+
+SwiftScan is a sophisticated file search utility built to outperform traditional OS linear search. It leverages custom **Suffix Tries** to achieve near-instantaneous latency, regardless of the system size.
+
+---
+
+## 🧠 Backend Architecture
+**Role:** Lead Architect & Developer
+
+The engine is designed for maximum algorithmic efficiency, moving beyond simple prefix matching to full substring discovery.
+
+### 🧩 Core Components
+
+| Component | Technical Highlight | Key Benefit |
+| :--- | :--- | :--- |
+| **Suffix Trie** | $O(L)$ Search Complexity | Instant results on huge datasets |
+| **LRU Cache** | Memoization Pattern | $O(1)$ response for repeated queries |
+| **Ranking Algorithm** | Multi-criteria Scoring | Most relevant files appear first |
+
+### 🛠️ Key Classes & Logic
+* **`FileTrie`**:
+    * Generates all name suffixes for complete substring search.
+    * Uses a `Set` for path storage to ensure unique results.
+* **`Ranking Engine`**:
+    * **Priority 1:** Exact Matches.
+    * **Priority 2:** Prefix Matches.
+    * **Priority 3:** Substring/Extension Matches.
+* **`ComputerScanner`**:
+    * Implements deep `os.walk` traversal.
+    * Robust error handling for `PermissionError`.
+
+---
+
+## 🖥️ Modern Frontend
+**Role:** AI-Augmented Development
+
+I leveraged **Generative AI** for rapid GUI prototyping, focusing my engineering effort on core logic while ensuring a responsive interface.
+
+* **Asynchronous UX:** Multi-threaded indexing keeps the UI fluid.
+* **Treeview Display:** Structured data view (Name, Type, Location).
+* **Context Menus:** Right-click functionality for:
+    * Opening files.
+    * Locating folders in Explorer.
+    * Copying full paths.
+
+---
+
+## 📊 Performance & Scalability
+A dedicated suite (`swift_tester.py`) was developed to validate system performance.
+
+### 📈 Benchmark Insights
+* **Scalability:** Tested across 10K, 50K, 100K, and 200K files.
+* **Amortized Analysis:** The dashboard visualizes the "Breakeven Point."
+* **Result:** While OS search time grows linearly, SwiftScan remains constant.
+
+
+
+---
+
+## ⚙️ Future Optimizations
+I have identified the following Space-Time trade-offs for future versions:
+1.  **Index Persistence:** Saving the Trie to disk using `pickle` for zero-second startup.
+2.  **Radix Tree:** Compressing nodes to reduce RAM footprint by ~60%.
+3.  **Parallel Indexing:** Utilizing Multi-core CPUs to speed up initial scanning.
+
+---
+
+## 🚀 How to Run
+1.  **Clone:** `git clone https://github.com/YourUsername/SwiftScan.git`
+2.  **Install Dependencies:** `pip install matplotlib`
+3.  **Launch App:** `python swift_gui.py`
+4.  **Run Tests:** `python swift_tester.py`
+
+---
+*Developed by Rustom - EE & CS Student at The Hebrew University of Jerusalem.*
