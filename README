@@ -41,19 +41,20 @@ I leveraged **Generative AI** for rapid GUI prototyping, focusing my engineering
 
 ---
 
-## 📊 Performance & Scalability
-A dedicated suite (`swift_tester.py`) validates system performance through **Amortized Analysis**.
+## 📊 Testing & Performance Analytics
+The core logic and system performance are strictly validated using a comprehensive **Pytest** automation suite.
 
-* **Scalability:** Tested across 10K, 50K, 100K, and 200K files.
-* **Result:** While OS search time grows linearly $O(N)$, SwiftScan's query time remains constant $O(L)$.
+* **Full Test Coverage:** Validates Suffix Trie insertion, substring search, case-insensitivity, overlapping names, and multi-level tuple sorting.
+* **Mocking & Fault Tolerance:** Uses `MagicMock` to simulate OS `PermissionError` during hard drive scans, ensuring the crawler never crashes on locked system files.
+* **Sub-Millisecond Speed:** Performance tests prove that search operations execute in **~0.05 ms** across simulated datasets of 10,000+ files, empirically validating the $O(L)$ search complexity.
 
 ---
 
 ## 🚀 How to Run
 1.  **Clone:** `git clone https://github.com/rostomahmad2345/SwiftScan.git`
-2.  **Install Dependencies:** `pip install matplotlib`
-3.  **Launch App:** `python swift_gui.py`
-4.  **Run Tests:** `python swift_tester.py`
+2.  **Install Dependencies:** `pip install pytest`
+3.  **Launch App:** `python sourse/swift_gui.py`
+4.  **Run Tests:** `pytest -v` (add `-s` to see performance metrics)
 
 ---
 *Developed by Rostom Egbaria - EE & CS Student at The Hebrew University of Jerusalem.*
