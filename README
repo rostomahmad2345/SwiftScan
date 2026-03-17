@@ -1,7 +1,7 @@
 # 🚀 SwiftScan
 ### High-Performance O(L) Substring Search Engine
 
-SwiftScan is a sophisticated file search utility built to outperform traditional OS linear search. It leverages custom **Suffix Tries** to achieve near-instantaneous latency, regardless of the system size.
+SwiftScan is a sophisticated file search utility built to outperform traditional OS linear search. It leverages custom **Suffix Tries** to achieve near-instantaneous search latency, regardless of the dataset size.
 
 ---
 
@@ -15,54 +15,37 @@ The engine is designed for maximum algorithmic efficiency, moving beyond simple 
 | Component | Technical Highlight | Key Benefit |
 | :--- | :--- | :--- |
 | **Suffix Trie** | $O(L)$ Search Complexity | Instant results on huge datasets |
-| **LRU Cache** | Memoization Pattern | $O(1)$ response for repeated queries |
 | **Ranking Algorithm** | Multi-criteria Scoring | Most relevant files appear first |
+| **Threaded Scanner** | Asynchronous Execution | Fast indexing without UI freezing |
 
 ### 🛠️ Key Classes & Logic
 * **`FileTrie`**:
-    * Generates all name suffixes for complete substring search.
+    * Generates name suffixes for complete substring search.
     * Uses a `Set` for path storage to ensure unique results.
 * **`Ranking Engine`**:
     * **Priority 1:** Exact Matches.
     * **Priority 2:** Prefix Matches.
     * **Priority 3:** Substring/Extension Matches.
 * **`ComputerScanner`**:
-    * Implements deep `os.walk` traversal.
-    * Robust error handling for `PermissionError`.
+    * Implements deep `os.walk` traversal with robust error handling.
 
 ---
 
 ## 🖥️ Modern Frontend
 **Role:** AI-Augmented Development
 
-I leveraged **Generative AI** for rapid GUI prototyping, focusing my engineering effort on core logic while ensuring a responsive interface.
+I leveraged **Generative AI** for rapid GUI prototyping, focusing my engineering effort on core algorithmic logic while ensuring a responsive interface.
 
-* **Asynchronous UX:** Multi-threaded indexing keeps the UI fluid.
 * **Treeview Display:** Structured data view (Name, Type, Location).
-* **Context Menus:** Right-click functionality for:
-    * Opening files.
-    * Locating folders in Explorer.
-    * Copying full paths.
+* **Context Menus:** Right-click functionality for Opening files, Locating folders, and Copying paths.
 
 ---
 
 ## 📊 Performance & Scalability
-A dedicated suite (`swift_tester.py`) was developed to validate system performance.
+A dedicated suite (`swift_tester.py`) validates system performance through **Amortized Analysis**.
 
-### 📈 Benchmark Insights
 * **Scalability:** Tested across 10K, 50K, 100K, and 200K files.
-* **Amortized Analysis:** The dashboard visualizes the "Breakeven Point."
-* **Result:** While OS search time grows linearly, SwiftScan remains constant.
-
-
-
----
-
-## ⚙️ Future Optimizations
-I have identified the following Space-Time trade-offs for future versions:
-1.  **Index Persistence:** Saving the Trie to disk using `pickle` for zero-second startup.
-2.  **Radix Tree:** Compressing nodes to reduce RAM footprint by ~60%.
-3.  **Parallel Indexing:** Utilizing Multi-core CPUs to speed up initial scanning.
+* **Result:** While OS search time grows linearly $O(N)$, SwiftScan's query time remains constant $O(L)$.
 
 ---
 
