@@ -1,5 +1,5 @@
 import pytest
-from sourse.swift_core import FileTrie
+from source.swift_core import FileTrie
 
 @pytest.fixture
 def global_trie():

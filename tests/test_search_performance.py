@@ -1,6 +1,6 @@
 import time
 import pytest
-from sourse.swift_core import FileTrie
+from source.swift_core import FileTrie
 
 
 def test_search_performance():

@@ -1,7 +1,7 @@
 import os
 import pytest
 from unittest.mock import MagicMock
-from sourse.swift_core import FileTrie,ComputerScanner
+from source.swift_core import FileTrie,ComputerScanner
 
 def test_scanner_loads_real_files(tmp_path):
     sub_folder = tmp_path / "my_documents"
